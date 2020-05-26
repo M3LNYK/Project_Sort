@@ -78,6 +78,7 @@ for i in photos:
 print("gg")
 for k in pho:
     process_all(k)
+    # Test line
     # file = open(k, 'rb')
     # Return Exif tags
     # tags = exifread.process_file(file, stop_tag="EXIF DateTimeOriginal")
