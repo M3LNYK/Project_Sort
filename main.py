@@ -1,6 +1,8 @@
-import glob, exifread, os
-import cv2
+import exifread
+import glob
+import os
 import time
+import cv2
 
 
 def get_photo_date(file_name):
@@ -8,12 +10,12 @@ def get_photo_date(file_name):
     file = open(file_name, 'rb')
     # Return Exif tags
     tags = exifread.process_file(file, stop_tag="EXIF DateTimeOriginal")
-    # print("Number: ", "\t", tags) #For testing
+    # print("Number: ", "\t", tags)             # For testing
     time_n_date = tags["EXIF DateTimeOriginal"]
     new_time_n_date = str(time_n_date)
     date = new_time_n_date.split(" ")[0]
     new_date = date.split(":")
-    # year = new_date[0]
+    # year = new_date[0]        # For remembering of order
     # month = new_date[1]
     # day = new_date[2]
     return new_date
@@ -71,7 +73,7 @@ def creation_date_video(path_to_file):
 def main_one(string_path_to_folder):
     """We give location of folder as input"""
     # .jpg and .JPG are the same
-    # photos = glob.glob("C:/Personal/pp2_photo/dataBase/*.JPG")
+    # photos = glob.glob("C:/Personal/pp2_photo/dataBase/*.JPG") # Examples of location format
     # pho = glob.glob("C:/Personal/pp2_photo/dataBase/*.jpg")
     photos = glob.glob(string_path_to_folder+"/*.JPG")
     print("Number of files: ", len(photos))
