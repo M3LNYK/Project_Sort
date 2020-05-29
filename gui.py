@@ -7,17 +7,18 @@ root = Tk()
 root.title("Mvv app")
 root.minsize(300, 400)
 
-def open():
-    global my_file
+
+def opener():
     # For choosing file
-    # root.filename = filedialog.askopenfilename(initialdir = "C:\Personal\pp2_photo\dataBase", title = "Select files:", filetypes = (("JPG files", "*.JPG"), ("All files", "*.*")))
+    # root.filename = filedialog.askopenfilename(initialdir = "C:\Personal\pp2_photo\dataBase",
+    # title = "Select files:", filetypes = (("JPG files", "*.JPG"), ("All files", "*.*")))
     # Label(root, text = root.filename).pack()
     # For choosing directory
-    root.directory = askdirectory() # return folder location
+    root.directory = askdirectory()     # return folder location
     # Label(root, text = root.directory).grid(row = 3, column = 0)
 
 
-button_choose = Button(root, text = "Choose", bg ="red", fg = "white", height = 10, command = open)
+button_choose = Button(root, text = "Choose", bg ="red", fg = "white", height = 10, command = opener)
 button_modify = Button(root, text = "Modify", bg ="orange", fg = "white", height = 10, width = 40)
 button_run = Button(root, text = "GO!", bg ="green", fg = "white", height = 10, width = 38)
 
