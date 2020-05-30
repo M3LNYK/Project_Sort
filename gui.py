@@ -10,7 +10,7 @@ root.minsize(300, 400)
 
 def opener():
     # For choosing directory
-    global root.directory = askdirectory()     # return folder location
+    root.directory = askdirectory()     # return folder location
     Label(root, text = root.directory).grid(row = 4, column = 0)
 
 
