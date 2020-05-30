@@ -9,13 +9,9 @@ root.minsize(300, 400)
 
 
 def opener():
-    # For choosing file
-    # root.filename = filedialog.askopenfilename(initialdir = "C:\Personal\pp2_photo\dataBase",
-    # title = "Select files:", filetypes = (("JPG files", "*.JPG"), ("All files", "*.*")))
-    # Label(root, text = root.filename).pack()
     # For choosing directory
-    root.directory = askdirectory()     # return folder location
-    # Label(root, text = root.directory).grid(row = 3, column = 0)
+    global root.directory = askdirectory()     # return folder location
+    Label(root, text = root.directory).grid(row = 4, column = 0)
 
 
 button_choose = Button(root, text = "Choose", bg ="red", fg = "white", height = 10, command = opener)
