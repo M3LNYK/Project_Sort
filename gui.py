@@ -1,4 +1,3 @@
-# import main
 from tkinter import *
 from tkinter import filedialog
 from tkinter.filedialog import askdirectory
@@ -9,8 +8,9 @@ root.title("Mvv app")
 root.minsize(300, 400)
 
 global checker1, checker2
-checker1 = FALSE
 checker2 = FALSE
+checker1 = FALSE
+
 
 def opener():
     # For choosing directory
@@ -26,14 +26,20 @@ def creator():
     global destination_folder
     global checker2
     destination_folder = root.directory = askdirectory()
+    # Label(root, text = root.directory).grid(row = 4, column = 0)
     checker2 = TRUE
     tester()
+
+
+def greenButton():
+    main_one(task_folder, destination_folder)
+
 
 def tester():
     if checker1 == TRUE and checker2 == TRUE:
         print("GG, WP")
-        button_run = Button(root, text = "GO!", bg = "green", fg = "white",
-                            height = 10, width = 38, state = NORMAL)
+        button_run = Button(root, text = "GO!", bg = "Purple", fg = "white",
+                            height = 10, width = 38, state = NORMAL, command = greenButton)
         button_run.grid(row = 2, column = 0, pady = 10, padx = 5)
     elif checker1 == FALSE and checker2 == TRUE:
         print("Choose fies to sort!")
@@ -47,8 +53,9 @@ def tester():
 
 button_choose = Button(root, text = "Choose", bg ="red", fg = "white", height = 10, command = opener)
 button_modify = Button(root, text = "Modify", bg ="orange", fg = "white", height = 10, width = 40, command = creator)
-button_run = Button(root, text = "GO!", bg ="green", fg = "white",
-                    height = 10, width = 38, state = DISABLED, disabledforegroun="red")
+button_run = Button(root, text = "Not ready", bg="#078800", fg = "white",
+                    height = 10, width = 38, state = DISABLED, disabledforegroun="white")
+
 
 # mylable.grid(row = 0, column = 1)
 button_choose.grid(row =0, column = 0, pady = 10, padx = 5, sticky = W+E)

@@ -36,8 +36,9 @@ def get_day(new_list):
     return res
 
 
-def create_dirs(year_loc, month_loc):
-    n_path = str("C:/Sorted/" + year_loc + "/" + month_loc)
+def create_dirs(fisrPart, year_loc, month_loc):
+    # n_path = str("C:/Sorted/" + year_loc + "/" + month_loc)
+    n_path = str(fisrPart+"/" + year_loc + "/" + month_loc)
     try:
         os.makedirs(n_path)
     except OSError:
@@ -46,15 +47,17 @@ def create_dirs(year_loc, month_loc):
         print("Successfully created the directory %s " % n_path)
 
 
-def process_all(file):
+def process_all(file, destination_folder):
     file_name = file.split("\\")[1]
     photo = get_photo_date(file)
     day = get_day(photo)    # Currently not used
     month = get_month(photo)
     year = get_year(photo)
     image = cv2.imread(file)
-    create_dirs(str(year), str(month))
-    name = str('C:/Sorted/' + year + '/' + month + '/' + file_name)
+    # create_dirs("C:/Sorted/", str(year), str(month))
+    # name = str('C:/Sorted/' + year + '/' + month + '/' + file_name)
+    create_dirs(destination_folder, str(year), str(month))
+    name = str(destination_folder + '/' + year + '/' + month + '/' + file_name)
     cv2.imwrite(name, image)
     # print(name)
 
@@ -70,7 +73,7 @@ def creation_date_video(path_to_file):
     # return os.path.getctime(path_to_file)
 
 
-def main_one(string_path_to_folder):
+def main_one(string_path_to_folder, destination_folder):
     """We give location of folder as input"""
     # .jpg and .JPG are the same
     # photos = glob.glob("C:/Personal/pp2_photo/dataBase/*.JPG") # Examples of location format
@@ -79,7 +82,7 @@ def main_one(string_path_to_folder):
     print("Number of files: ", len(photos))
     for k in photos:
         # print(get_photo_date(k))
-        process_all(k)
+        process_all(k, destination_folder)
 
 
 path = os.getcwd()
