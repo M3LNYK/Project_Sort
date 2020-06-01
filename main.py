@@ -42,9 +42,9 @@ def create_dirs(fisrPart, year_loc, month_loc):
     try:
         os.makedirs(n_path)
     except OSError:
-        print("Creation of the directory %s failed" % n_path)
+         print("Creation of the directory %s failed" % n_path)
     else:
-        print("Successfully created the directory %s " % n_path)
+         print("Successfully created the directory %s " % n_path)
 
 
 def process_all(file, destination_folder):
@@ -85,8 +85,8 @@ def main_one(string_path_to_folder, destination_folder):
         process_all(k, destination_folder)
 
 
-path = os.getcwd()
-print("The current working directory is %s" % path)
+# path = os.getcwd()
+# print("The current working directory is %s" % path)
 # main_one("C:/Personal/pp2_photo/dataBase")
 
 """TESTING PART"""
