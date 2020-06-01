@@ -78,12 +78,13 @@ def main_one(string_path_to_folder):
     photos = glob.glob(string_path_to_folder+"/*.JPG")
     print("Number of files: ", len(photos))
     for k in photos:
+        # print(get_photo_date(k))
         process_all(k)
 
 
 path = os.getcwd()
 print("The current working directory is %s" % path)
-main_one("C:/Personal/pp2_photo/dataBase")
+# main_one("C:/Personal/pp2_photo/dataBase")
 
 """TESTING PART"""
 # for i in photos:
