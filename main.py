@@ -40,11 +40,10 @@ def create_dirs(fisrPart, year_loc, month_loc):
     # n_path = str("C:/Sorted/" + year_loc + "/" + month_loc)
     n_path = str(fisrPart+"/" + year_loc + "/" + month_loc)
     try:
-        os.makedirs(n_path)
-    except OSError:
-         print("Creation of the directory %s failed" % n_path)
-    else:
-         print("Successfully created the directory %s " % n_path)
+        os.makedirs(n_path, exist_ok = True)
+        print("Directory '%s' created successfully" % n_path)
+    except OSError as error:
+        print("Directory '%s' can not be created")
 
 
 def process_all(file, destination_folder):

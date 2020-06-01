@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import filedialog
 from tkinter.filedialog import askdirectory
 from main import main_one
 
@@ -38,8 +37,12 @@ def greenButton():
 def tester():
     if checker1 == TRUE and checker2 == TRUE:
         print("GG, WP")
-        button_run = Button(root, text = "GO!", bg = "Green", fg = "white",
-                            height = 10, width = 38, state = NORMAL, command = greenButton)
+        button_run = Button(root,
+                            text = "GO!",
+                            bg = "Green", fg = "white",
+                            height = 10, width = 38,
+                            state = NORMAL,
+                            command = greenButton)
         button_run.grid(row = 2, column = 0, pady = 10, padx = 5)
     elif checker1 == FALSE and checker2 == TRUE:
         print("Choose fies to sort!")
@@ -51,10 +54,21 @@ def tester():
         print("Chose files to choose and where to place them!")
 
 
-button_choose = Button(root, text = "Choose folder with files to sort", bg ="red", fg = "white", height = 10, command = opener)
-button_modify = Button(root, text = "Choose folder where sorted files should be sorted", bg ="orange", fg = "white", height = 10, width = 40, command = creator)
-button_run = Button(root, text = "Not ready to start", bg="Grey", fg = "white",
-                    height = 10, width = 38, state = DISABLED, disabledforegroun="Black")
+button_choose = Button(root,
+                       text = "Choose folder with files to sort",
+                       bg ="red", fg = "white",
+                       height = 10, command = opener)
+button_modify = Button(root,
+                       text = "Choose folder where sorted files should be sorted",
+                       bg ="orange", fg = "white",
+                       height = 10, width = 40,
+                       command = creator)
+button_run = Button(root,
+                    text = "Not ready to start",
+                    bg="Grey", fg = "white",
+                    height = 10, width = 38,
+                    state = DISABLED,
+                    disabledforegroun="Black")
 
 
 # mylable.grid(row = 0, column = 1)
