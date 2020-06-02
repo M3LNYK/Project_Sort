@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter.filedialog import askdirectory
-from main import main_one
+from draft import main_one
 
 root = Tk()
 root.title("Photo Sorting app")
