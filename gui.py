@@ -15,7 +15,7 @@ checker1 = FALSE
 def opener():
     # For choosing directory
     global task_folder
-    task_folder = root.directory = askdirectory()     # return folder location
+    task_folder = root.directory = askdirectory(initialdir = "C:/Personal/pp2_photo")     # return folder location
     # Label(root, text = root.directory).grid(row = 4, column = 0)
     global checker1
     checker1 = TRUE
@@ -25,7 +25,7 @@ def opener():
 def creator():
     global destination_folder
     global checker2
-    destination_folder = root.directory = askdirectory()
+    destination_folder = root.directory = askdirectory(initialdir = "C:/Personal/pp2_photo")
     # Label(root, text = root.directory).grid(row = 4, column = 0)
     checker2 = TRUE
     tester()
