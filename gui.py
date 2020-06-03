@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter.filedialog import askdirectory
 from draft import main_one
 
+
 root = Tk()
 root.title("Photo Sorting app")
 root.minsize(300, 400)

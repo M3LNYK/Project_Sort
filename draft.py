@@ -80,7 +80,7 @@ def main_one(string_path_to_folder, destination_folder):
     photos = glob.glob(string_path_to_folder+"/*.JPG")
     print("Number of files: ", len(photos))
     for k in photos:
-        # print(get_photo_date(k))
+        print(get_photo_date(k))
         process_all(k, destination_folder)
 
 
