@@ -60,7 +60,8 @@ def main_one(string_path_to_folder, destination_folder):
 
 root = Tk()
 root.title("Photo Sorting app")
-root.minsize(300, 400)
+root.geometry('300x600+50+20')
+root.minsize(300, 600)
 
 global checker1, checker2
 checker2 = FALSE
@@ -69,7 +70,7 @@ checker1 = FALSE
 
 def opener():
     global task_folder
-    task_folder = root.directory = askdirectory()     # return folder location
+    task_folder = root.directory = askdirectory(initialdir = "C:/")
     global checker1
     checker1 = TRUE
     tester()
@@ -78,7 +79,7 @@ def opener():
 def creator():
     global destination_folder
     global checker2
-    destination_folder = root.directory = askdirectory()
+    destination_folder = root.directory = askdirectory(initialdir = "C:/")
     checker2 = TRUE
     tester()
 
@@ -107,25 +108,73 @@ def tester():
         print("Chose files to choose and where to place them!")
 
 
+def reseter():
+    global checker1
+    checker1 = FALSE
+    global checker2
+    checker2 = FALSE
+    global task_folder
+    task_folder = None
+    global destination_folder
+    destination_folder = None
+    button_choose = Button(root,
+                           text = "CHOOSE FOLDER WITH FILES TO SORT",
+                           bg = "red", fg = "white",
+                           height = 10, width = 40,
+                           relief = GROOVE,
+                           command = opener)
+    button_modify = Button(root,
+                           text = "CHOOSE FOLDER WHERE TO SAVE FILES ",
+                           bg = "orange", fg = "white",
+                           height = 10, width = 40,
+                           relief = GROOVE,
+                           command = creator)
+    button_run = Button(root,
+                        text = "Not ready to start",
+                        bg = "Grey", fg = "white",
+                        height = 10, width = 38,
+                        state = DISABLED,
+                        relief = GROOVE,
+                        disabledforegroun = "Black")
+    button_restart = Button(root,
+                            text = "Reset",
+                            height = 3, width = 10,
+                            relief = GROOVE,
+                            command = reseter)
+    button_choose.grid(row = 0, column = 0, pady = 10, padx = 5, columnspan = 2)
+    button_modify.grid(row = 1, column = 0, pady = 10, padx = 5, columnspan = 2)
+    button_run.grid(row = 2, column = 0, pady = 10, padx = 5, columnspan = 2)
+    button_restart.grid(row = 3, column = 1, pady = 0, padx = '9px', sticky = NE)
+
+
 button_choose = Button(root,
-                       text = "Choose folder with files to sort",
-                       bg ="red", fg = "white",
-                       height = 10, command = opener)
-button_modify = Button(root,
-                       text = "Choose folder where sorted files should be sorted",
-                       bg ="orange", fg = "white",
+                       text = "CHOOSE FOLDER WITH FILES TO SORT",
+                       bg = "red", fg = "white",
                        height = 10, width = 40,
+                       relief = GROOVE,
+                       command = opener)
+button_modify = Button(root,
+                       text = "CHOOSE FOLDER WHERE TO SAVE FILES ",
+                       bg = "orange", fg = "white",
+                       height = 10, width = 40,
+                       relief = GROOVE,
                        command = creator)
 button_run = Button(root,
                     text = "Not ready to start",
-                    bg="Grey", fg = "white",
+                    bg = "Grey", fg = "white",
                     height = 10, width = 38,
+                    relief = GROOVE,
                     state = DISABLED,
-                    disabledforegroun="Black")
+                    disabledforegroun = "Black")
+button_restart = Button(root,
+                        text = "Reset",
+                        height = 3, width = 10,
+                        relief = GROOVE,
+                        command = reseter)
 
-
-button_choose.grid(row =0, column = 0, pady = 10, padx = 5, sticky = W + E)
-button_modify.grid(row =1, column = 0, pady = 10, padx = 5)
-button_run.grid(row =2, column = 0, pady = 10, padx = 5)
+button_choose.grid(row = 0, column = 0, pady = 10, padx = 5, columnspan = 2)
+button_modify.grid(row = 1, column = 0, pady = 10, padx = 5, columnspan = 2)
+button_run.grid(row = 2, column = 0, pady = 10, padx = 5, columnspan = 2)
+button_restart.grid(row = 3, column = 1, pady = 0, padx = '9px', sticky = NE)
 
 root.mainloop()

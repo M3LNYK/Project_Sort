@@ -67,7 +67,7 @@ def reseter():
     button_choose = Button(root,
                            text = "CHOOSE FOLDER WITH FILES TO SORT",
                            bg = "red", fg = "white",
-                           height = 10,
+                           height = 10, width = 40,
                            relief = GROOVE,
                            command = opener)
     button_modify = Button(root,
@@ -84,15 +84,14 @@ def reseter():
                         relief = GROOVE,
                         disabledforegroun = "Black")
     button_restart = Button(root,
-                            text = "Res",
-                            height = 5, width = 5,
-                            pady = 5, padx = 5,
+                            text = "Reset",
+                            height = 3, width = 10,
                             relief = GROOVE,
                             command = reseter)
-    button_choose.grid(row = 0, column = 0, pady = 10, padx = 5, sticky = W + E)
-    button_modify.grid(row = 1, column = 0, pady = 10, padx = 5)
-    button_run.grid(row = 2, column = 0, pady = 10, padx = 5)
-    button_restart.grid(row = 3, column = 0, pady = 0, padx = 0)
+    button_choose.grid(row = 0, column = 0, pady = 10, padx = 5, columnspan = 2)
+    button_modify.grid(row = 1, column = 0, pady = 10, padx = 5, columnspan = 2)
+    button_run.grid(row = 2, column = 0, pady = 10, padx = 5, columnspan = 2)
+    button_restart.grid(row = 3, column = 1, pady = 0, padx = '9px', sticky = NE)
 
 
 button_choose = Button(root,
@@ -115,7 +114,7 @@ button_run = Button(root,
                     state = DISABLED,
                     disabledforegroun = "Black")
 button_restart = Button(root,
-                        text = "Res",
+                        text = "Reset",
                         height = 3, width = 10,
                         relief = GROOVE,
                         command = reseter)
